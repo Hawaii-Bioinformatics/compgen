@@ -1,0 +1,31 @@
+{% load url from future %}
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+  <head>
+    <title></title>
+    <style>
+      td, th {
+      padding-left:15px;
+      border:1px solid black;
+      }
+    </style>
+    
+  </head>
+  <body>
+    
+    {% for i in output %}
+    {% if forloop.first %}
+    <table style = "width:100%;">
+      <tr><th>File</th><th>Size (MB)</th></tr>
+    {% endif %}
+    <tr><td><a href = "{% url 'downloadfile' id i.tag %}">{{i.name}}</a></td><td>{{i.size}}</td></tr>
+    {% if forloop.last %}
+    </table>
+    {% endif %}
+    {% endfor %}
+</body>
+</html>
+
+

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+  <head>
+    <style>
+      rect.bordered {
+        stroke: #E6E6E6;
+        stroke-width:2px;   
+      }
+
+      text.mono {
+        font-size: 9pt;
+        font-family: Consolas, courier;
+        fill: #aaa;
+      }
+
+      text.axis-workweek {
+        fill: #000;
+      }
+
+      text.axis-worktime {
+        fill: #000;
+      }
+    </style>
+    <script src="http://d3js.org/d3.v3.js"></script>
+  </head>
+  <body>
+    <div id="chart"></div>
+
+    <script type="text/javascript">
+      var margin = { top: 200, right: 50, bottom: 100, left: 250 },
+      width = 1010 - margin.left - margin.right,
+      height = 2048 - margin.top - margin.bottom,
+      colors = ["black", "white", "blue", "green", "yellow", "#CC0000","#FF0000"],
+      colors_s = ["white", "blue", "green", "yellow", "red"];
+
+      d3.tsv("http://courge.ics.hawaii.edu/static/heatmap/data",
+        function(d) {
+           return {
+            p1: +d.p1,
+            p2: +d.p2,
+            value: +d.value
+          };
+        },
+        function(error, data) {
+
+      //d3.max(data, function (d) { return d.value; })])
+      var maxval = d3.max(data, function (d) { return d.value; }),
+      maxp1 =  d3.max(data, function(d){return d.p1;}),
+      maxp2 = d3.max(data, function(d){return d.p2;});
+
+      var gridSize = Math.floor(width / maxp2),
+      days = [
+      [0, 'Nematostella_vectensis'],
+      [1, 'Gorgonia_ventalina'],
+      [2, 'Acropora_tenuis'],
+      [3, 'Pocillopora_damicornis'],
+      [4, 'Favia_sp'],
+      [5, 'Seriatopora_sp'],
+      [6, 'Seriatopora_hystrix'],
+      [7, 'Platygyra_carnosus'],
+      [8, 'Pseudodiploria_strigosa'],
+      [9, 'Porites_lobata'],
+      [10, 'Astreopora_sp'],
+      [11, 'Anthopleura_elegantissima'],
+      [12, 'Porites_australiensis'],
+      [13, 'Acropora_digitifera'],
+      [14, 'Stylophora_pistillata'],
+      [15, 'Montastraea_cavernosa'],
+      [16, 'Fungia_scutaria'],
+      [17, 'Madracis_auretenra'],
+      [18, 'Acropora_palmata'],
+      [19, 'Acropora_hyacinthus'],
+      [20, 'Hydra_magnapapillata'],
+      [21, 'Porites_astreoides'],
+      [22, 'Trichoplax_adherens'],
+      [23, 'Ephydatia_muelleri'],
+      [24, 'Amphimedon_queenslandica'],
+      [25, 'Monosiga_brevicollis'],
+      [26, 'Montastraea_faveolata'],
+      [27, 'Mnemiopsis_leidyi'],
+      [28, 'Oscarella_carmela'],
+      [29, 'Anemonia_viridis'],
+      [30, 'Pleurobrachia_pileus']];
+
+      times = [
+      [0, 'Nematostella_vectensis'],
+      [1, 'Gorgonia_ventalina'],
+      [2, 'Acropora_tenuis'],
+      [3, 'Pocillopora_damicornis'],
+      [4, 'Favia_sp'],
+      [5, 'Seriatopora_sp'],
+      [6, 'Seriatopora_hystrix'],
+      [7, 'Platygyra_carnosus'],
+      [8, 'Pseudodiploria_strigosa'],
+      [9, 'Porites_lobata'],
+      [10, 'Astreopora_sp'],
+      [11, 'Anthopleura_elegantissima'],
+      [12, 'Porites_australiensis'],
+      [13, 'Acropora_digitifera'],
+      [14, 'Stylophora_pistillata'],
+      [15, 'Montastraea_cavernosa'],
+      [16, 'Fungia_scutaria'],
+      [17, 'Madracis_auretenra'],
+      [18, 'Acropora_palmata'],
+      [19, 'Acropora_hyacinthus'],
+      [20, 'Hydra_magnapapillata'],
+      [21, 'Porites_astreoides'],
+      [22, 'Trichoplax_adherens'],
+      [23, 'Ephydatia_muelleri'],
+      [24, 'Amphimedon_queenslandica'],
+      [25, 'Monosiga_brevicollis'],
+      [26, 'Montastraea_faveolata'],
+      [27, 'Mnemiopsis_leidyi'],
+      [28, 'Oscarella_carmela'],
+      [29, 'Anemonia_viridis'],
+      [30, 'Pleurobrachia_pileus']];
+      
+      var bottom = gridSize * maxp1;
+
+      var colorScale = d3.scale.linear()
+      .domain([0, 1, maxval / 4, maxval / 2, (maxval / 4)*3,  maxval -1, maxval])
+      .range(colors);			
+     if(maxval == 1){
+      colorScale = d3.scale.linear()
+      .domain([0, maxval / 4, maxval / 2, (maxval / 4)*3,  maxval])
+      .range(colors_s);
+     }
+
+      var svg = d3.select("#chart").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      
+      var dayLabels = svg.selectAll(".dayLabel")
+      .data(days)
+      .enter().append("text")
+      .text(function (d) { return d[1]; })
+      .attr("x", 0)
+      .attr("y", function (d, i) { return (i-1) * gridSize; })
+      .style("text-anchor", "end")
+      .attr("transform", "translate(-30," + gridSize / 1.5 + ")")
+      .attr("class", function (d, i) { return "dayLabel mono axis axis-workweek"; });
+      
+
+      var x0 = d3.scale.ordinal().domain(d3.range(maxp2 + 1)).rangeBands([0, width], -.5);
+
+      var timeLabels = svg.selectAll(".timeLabel")
+      .data(times)
+      .enter().append("g")
+      .attr("x", function(d, i) { return (i-1) * gridSize; })
+      .attr("y", 0)
+      .attr("transform", function(d, i){return "translate(" + x0(i) + ", -30)"});
+         
+
+      timeLabels.append("text")
+      .text(function(d) { return d[1]; })
+      .style("text-anchor", "start")
+      .attr("transform", function(d) {return "rotate(-65,0,0)" })      
+      .attr("class", function(d, i) { return "timeLabel mono axis axis-worktime"; });
+
+      var heatMap = svg.selectAll(".hour")
+      .data(data)
+      .enter().append("rect")
+      .attr("x", function(d) { return (d.p2 - 1) * gridSize; })
+      .attr("y", function(d) { return (d.p1 - 1) * gridSize; })
+      .attr("rx", 4)
+      .attr("ry", 4)
+      .attr("class", "hour bordered")
+      .attr("width", gridSize)
+      .attr("height", gridSize)
+      .style("fill", colors[0]);
+      
+      heatMap.transition().duration(1000)
+      .style("fill", function(d) { return colorScale(d.value); });
+      
+      heatMap.append("title").text(function(d) { return d.value; });
+      //heatMap.on("click", function(d){alert(days[d.p1][1] + " " + times[d.p2][1] + " ");});
+      heatMap.on("click", function(d){if(days[d.p1][1] != times[d.p2][1]){document.location = "http://courge.ics.hawaii.edu/heatmap/summary/"+days[d.p1][1] + "/" + times[d.p2][1] + "/";}});
+      });
+    </script>
+  </body>
+</html>
+
+

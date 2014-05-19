@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Details</title>
+    <!-- DataTables CSS -->
+<link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
+ 
+<!-- jQuery -->
+<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+ 
+<!-- DataTables -->
+<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+<script>  $(document).ready(function() { $('#example').dataTable({"iDisplayLength": 50}); } );</script>
+  </head>
+  <body>
+    <div style = "margin:0 auto;width: 65%">
+
+    <table id = "example">
+      <thead>
+	<tr><th>Contig</th><th>GOSlim</th><th>Description</th></tr>
+	</thead>
+      <tbody>
+    {% for c in godata %}
+    {% for i in c %}
+	<tr><td>{{i.contig.name}}</td><td>{{i.go_id.go_id}}</td><td  style = "padding-left:20px;">{{i.go_id.description}}</td></tr>
+	{% endfor%}
+    {% endfor %}
+	</tbody>
+      </table>
+    </div>
+  </body>
+</html>
