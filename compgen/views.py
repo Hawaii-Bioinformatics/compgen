@@ -77,6 +77,9 @@ def ajaxSummary(request, popA, popB):
     jsstr= json.dumps( dict(data = [ (str(r.orggroup), str(r.score), str(r.avgboot), '<a href = "' + reverse('GOdetails', kwargs=dict(popA=popA, popB=popB, idx=r.orggroup) )  + '">Details</a>', '<a href = "' +  reverse('dlMSA', kwargs=dict(popA=popA, popB=popB, idx=r.orggroup) ) + '">Download</a>') for r in entries ]) )
     return HttpResponse(jsstr, content_type = "application/json")
 
+def matrixdl(request):
+    mtrx = open(settings.MATRIX_DATA)
+    return HttpResponse(mtrx.read(), content_type = "text/text")
 
 def getMSA(popA, popB, idx):
     pa = organism.objects.get(id = popA)
@@ -104,9 +107,9 @@ def ajaxWordCloud(request, popA, popB):
     if not os.path.isfile(cached):
         cursor = connection.cursor()
         cursor.execute("""SELECT d.go_id, d.id, d.description, count(d.id) as 'counts' 
-                          FROM hmap_contig as b 
-                          JOIN hmap_goslim AS c ON (c.contig_id = b.id) 
-                          JOIN hmap_go2name as d ON (d.id = c.go_id_id)
+                          FROM compgen_contig as b 
+                          JOIN compgen_goslim AS c ON (c.contig_id = b.id) 
+                          JOIN compgen_go2name as d ON (d.id = c.go_id_id)
                           WHERE b.org_id = %s OR b.org_id= %s
                           GROUP BY d.id
                           ORDER BY counts DESC;""", [popA, popB])
@@ -137,9 +140,9 @@ def ajaxFilterSummary(request, popA, popB, uid):
     
     cursor = connection.cursor()
     cursor.execute("""SELECT a.orggroup 
-FROM hmap_group AS a 
-JOIN hmap_msa AS b on (a.id = b.grp_id) 
-JOIN hmap_goslim AS c ON (c.contig_id = b.contig_id) 
+FROM compgen_group AS a 
+JOIN compgen_msa AS b on (a.id = b.grp_id) 
+JOIN compgen_goslim AS c ON (c.contig_id = b.contig_id) 
 WHERE c.go_id_id = %s AND a.orgpair_id = %s""", [int(uid), orgpair.id])
     ag = group.objects.filter(orgpair_id = orgpair).aggregate(Max('orggroup'))
     

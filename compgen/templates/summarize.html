@@ -34,7 +34,7 @@ $(document).ready(function() {
    "ajax": '{% url  'ajax_summary' popA popB %}',
    "deferRender": true,
     "iDisplayLength": 50,
-"bFilter": false
+//"bFilter": false // can't add since it will disable the filtering function of the word cloud. need to hide it with css instead..
    })); 
 
 $(document).data('d3chart.fill', d3.scale.category20());

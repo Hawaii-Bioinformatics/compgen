@@ -5,7 +5,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-                       url(r'', include('hmap.urls') ),
+                       url(r'', include('compgen.urls') ),
     # Examples:
     # url(r'^$', 'heatmap.views.home', name='home'),
     # url(r'^heatmap/', include('heatmap.foo.urls')),
