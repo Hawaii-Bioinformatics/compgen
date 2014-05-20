@@ -1,0 +1,1027 @@
+(lp1
+(lp2
+(Vbiological_process
+p3
+I338146
+tp4
+a(Vcellular_component
+p5
+I112542
+tp6
+a(Vmolecular_function
+p7
+I92802
+tp8
+a(Vorganelle
+p9
+I29829
+tp10
+a(Vanatomical structure development
+p11
+I26066
+tp12
+a(Vtransport
+p13
+I18723
+tp14
+a(Vcellular nitrogen compound metabolic process
+p15
+I15955
+tp16
+a(Vsignal transduction
+p17
+I15072
+tp18
+a(Vprotein complex
+p19
+I12692
+tp20
+a(Vresponse to stress
+p21
+I12685
+tp22
+a(Vion binding
+p23
+I11593
+tp24
+a(Vsmall molecule metabolic process
+p25
+I10919
+tp26
+a(Vbiosynthetic process
+p27
+I10398
+tp28
+a(Vcellular protein modification process
+p29
+I8599
+tp30
+a(Vcatabolic process
+p31
+I7994
+tp32
+a(Vimmune system process
+p33
+I6696
+tp34
+a(Vcell differentiation
+p35
+I6117
+tp36
+a(Vcellular component assembly
+p37
+I5436
+tp38
+a(Vcytosol
+p39
+I5363
+tp40
+a(Vlipid metabolic process
+p41
+I5020
+tp42
+a(Venzyme binding
+p43
+I4941
+tp44
+a(VDNA metabolic process
+p45
+I4148
+tp46
+a(Vlocomotion
+p47
+I4133
+tp48
+a(Vanatomical structure formation involved in morphogenesis
+p49
+I4085
+tp50
+a(Vplasma membrane
+p51
+I4074
+tp52
+a(Vtransmembrane transporter activity
+p53
+I3966
+tp54
+a(Vnucleolus
+p55
+I3904
+tp56
+a(Vvesicle-mediated transport
+p57
+I3863
+tp58
+a(Vnucleus
+p59
+I3623
+tp60
+a(Vchromosome organization
+p61
+I3254
+tp62
+a(Vhomeostatic process
+p63
+I3240
+tp64
+a(Vcarbohydrate metabolic process
+p65
+I3155
+tp66
+a(VDNA binding
+p67
+I3151
+tp68
+a(Voxidoreductase activity
+p69
+I3099
+tp70
+a(Vmacromolecular complex assembly
+p71
+I3064
+tp72
+a(Vcytoplasm
+p73
+I2964
+tp74
+a(Vtransmembrane transport
+p75
+I2944
+tp76
+a(Vcell motility
+p77
+I2910
+tp78
+a(Vembryo development
+p79
+I2799
+tp80
+a(Vnucleobase-containing compound catabolic process
+p81
+I2794
+tp82
+a(Vgrowth
+p83
+I2740
+tp84
+a(Vprotein maturation
+p85
+I2703
+tp86
+a(Vneurological system process
+p87
+I2683
+tp88
+a(Vsignal transducer activity
+p89
+I2641
+tp90
+a(Vcytoskeletal protein binding
+p91
+I2593
+tp92
+a(Vprotein complex assembly
+p93
+I2491
+tp94
+a(Vcytoskeleton organization
+p95
+I2449
+tp96
+a(Vkinase activity
+p97
+I2416
+tp98
+a(VRNA binding
+p99
+I2234
+tp100
+a(VGolgi apparatus
+p101
+I2101
+tp102
+a(Vlipid binding
+p103
+I2052
+tp104
+a(Vcytoplasmic membrane-bounded vesicle
+p105
+I2026
+tp106
+a(Vmitochondrion
+p107
+I1998
+tp108
+a(Vcellular amino acid metabolic process
+p109
+I1970
+tp110
+a(Vcell adhesion
+p111
+I1844
+tp112
+a(Vcytoskeleton
+p113
+I1820
+tp114
+a(Vendoplasmic reticulum
+p115
+I1730
+tp116
+a(Vpeptidase activity
+p117
+I1728
+tp118
+a(Vcell-cell signaling
+p119
+I1667
+tp120
+a(Vcell proliferation
+p121
+I1632
+tp122
+a(Vmembrane organization
+p123
+I1631
+tp124
+a(VATPase activity
+p125
+I1611
+tp126
+a(Vligase activity
+p127
+I1599
+tp128
+a(Vcell death
+p129
+I1598
+tp130
+a(Venzyme regulator activity
+p131
+I1560
+tp132
+a(Vendosome
+p133
+I1552
+tp134
+a(Vnucleoplasm
+p135
+I1521
+tp136
+a(Vmicrotubule organizing center
+p137
+I1494
+tp138
+a(Vcell morphogenesis
+p139
+I1406
+tp140
+a(Vtranscription factor binding
+p141
+I1370
+tp142
+a(Vprotein binding transcription factor activity
+p143
+I1247
+tp144
+a(Vstructural molecule activity
+p145
+I1211
+tp146
+a(Vextracellular region
+p147
+I1192
+tp148
+a(Vsulfur compound metabolic process
+p149
+I1192
+tp150
+a(Vnucleic acid binding transcription factor activity
+p151
+I1146
+tp152
+a(Vprotein targeting
+p153
+I1134
+tp154
+a(Vcofactor metabolic process
+p155
+I1025
+tp156
+a(Vextracellular space
+p157
+I991
+tp158
+a(Vextracellular matrix organization
+p159
+I947
+tp160
+a(Vcilium
+p161
+I934
+tp162
+a(Vtransferase activity, transferring acyl groups
+p163
+I920
+tp164
+a(VmRNA processing
+p165
+I898
+tp166
+a(Vgeneration of precursor metabolites and energy
+p167
+I870
+tp168
+a(Vvacuole
+p169
+I870
+tp170
+a(Vsymbiosis, encompassing mutualism through parasitism
+p171
+I838
+tp172
+a(Vphosphatase activity
+p173
+I784
+tp174
+a(Vcell cycle
+p175
+I734
+tp176
+a(Vaging
+p177
+I707
+tp178
+a(Vhelicase activity
+p179
+I704
+tp180
+a(Vplastid
+p181
+I682
+tp182
+a(Vtransferase activity, transferring glycosyl groups
+p183
+I681
+tp184
+a(Vreproduction
+p185
+I663
+tp186
+a(Vcell division
+p187
+I625
+tp188
+a(Vnucleocytoplasmic transport
+p189
+I623
+tp190
+a(Vlyase activity
+p191
+I607
+tp192
+a(Vcell junction organization
+p193
+I600
+tp194
+a(Vcirculatory system process
+p195
+I579
+tp196
+a(Vnuclease activity
+p197
+I579
+tp198
+a(Vdevelopmental maturation
+p199
+I537
+tp200
+a(Vmethyltransferase activity
+p201
+I509
+tp202
+a(Vcytoskeleton-dependent intracellular transport
+p203
+I499
+tp204
+a(Vprotein folding
+p205
+I497
+tp206
+a(Vlysosome
+p207
+I479
+tp208
+a(Vchromosome
+p209
+I473
+tp210
+a(Vexternal encapsulating structure
+p211
+I471
+tp212
+a(Vribonucleoprotein complex assembly
+p213
+I461
+tp214
+a(Vcell wall
+p215
+I460
+tp216
+a(Vsecondary metabolic process
+p217
+I446
+tp218
+a(Vmitochondrion organization
+p219
+I445
+tp220
+a(Vnuclear envelope
+p221
+I410
+tp222
+a(VGTPase activity
+p223
+I407
+tp224
+a(Vproteinaceous extracellular matrix
+p225
+I393
+tp226
+a(Visomerase activity
+p227
+I391
+tp228
+a(Vhistone binding
+p229
+I383
+tp230
+a(Vnucleotidyltransferase activity
+p231
+I373
+tp232
+a(VmRNA binding
+p233
+I357
+tp234
+a(Vhydrolase activity, acting on glycosyl bonds
+p235
+I345
+tp236
+a(Vplasma membrane organization
+p237
+I344
+tp238
+a(Vcell wall organization or biogenesis
+p239
+I326
+tp240
+a(Vhydrolase activity, acting on carbon-nitrogen (but not peptide) bonds
+p241
+I313
+tp242
+a(Vmitosis
+p243
+I313
+tp244
+a(VtRNA metabolic process
+p245
+I310
+tp246
+a(Vchromosome segregation
+p247
+I310
+tp248
+a(Vstructural constituent of ribosome
+p249
+I306
+tp250
+a(Vvacuolar transport
+p251
+I301
+tp252
+a(Vperoxisome
+p253
+I274
+tp254
+a(Vprotein binding, bridging
+p255
+I270
+tp256
+a(Vtranslation factor activity, nucleic acid binding
+p257
+I261
+tp258
+a(Vsmall conjugating protein binding
+p259
+I260
+tp260
+a(Vunfolded protein binding
+p261
+I222
+tp262
+a(Vlipid particle
+p263
+I220
+tp264
+a(Vprotein transporter activity
+p265
+I210
+tp266
+a(Vribosome
+p267
+I194
+tp268
+a(Vtranslation
+p269
+I184
+tp270
+a(Vnuclear chromosome
+p271
+I154
+tp272
+a(Vtransferase activity, transferring alkyl or aryl (other than methyl) groups
+p273
+I148
+tp274
+a(Vribosome biogenesis
+p275
+I132
+tp276
+a(Vpigmentation
+p277
+I125
+tp278
+a(Vintracellular
+p279
+I124
+tp280
+a(Vthylakoid
+p281
+I89
+tp282
+a(VrRNA binding
+p283
+I81
+tp284
+a(Vtransposition
+p285
+I49
+tp286
+a(Vnitrogen cycle metabolic process
+p287
+I46
+tp288
+a(Vphotosynthesis
+p289
+I26
+tp290
+a(Vcell
+p291
+I15
+tp292
+a(VRNA modification guide activity
+p293
+I2
+tp294
+aa(lp295
+(g3
+L6372L
+tp296
+a(g5
+L4365L
+tp297
+a(g7
+L2787L
+tp298
+a(g9
+L21685L
+tp299
+a(g11
+L26888L
+tp300
+a(g13
+L5491L
+tp301
+a(g15
+L18268L
+tp302
+a(g17
+L5801L
+tp303
+a(g19
+L21693L
+tp304
+a(g21
+L5613L
+tp305
+a(g23
+L21630L
+tp306
+a(g25
+L22689L
+tp307
+a(g27
+L7192L
+tp308
+a(g29
+L5168L
+tp309
+a(g31
+L7190L
+tp310
+a(g33
+L1781L
+tp311
+a(g35
+L13924L
+tp312
+a(g37
+L13633L
+tp313
+a(g39
+L4599L
+tp314
+a(g41
+L5326L
+tp315
+a(g43
+L12968L
+tp316
+a(g45
+L4995L
+tp317
+a(g47
+L20507L
+tp318
+a(g49
+L26682L
+tp319
+a(g51
+L4644L
+tp320
+a(g53
+L13690L
+tp321
+a(g55
+L4507L
+tp322
+a(g57
+L10381L
+tp323
+a(g59
+L4422L
+tp324
+a(g61
+L28228L
+tp325
+a(g63
+L21086L
+tp326
+a(g65
+L4725L
+tp327
+a(g67
+L2790L
+tp328
+a(g69
+L10598L
+tp329
+a(g71
+L31581L
+tp330
+a(g73
+L4514L
+tp331
+a(g75
+L29927L
+tp332
+a(g77
+L26901L
+tp333
+a(g79
+L7881L
+tp334
+a(g81
+L18282L
+tp335
+a(g83
+L20503L
+tp336
+a(g85
+L28535L
+tp337
+a(g87
+L27837L
+tp338
+a(g89
+L3827L
+tp339
+a(g91
+L6320L
+tp340
+a(g93
+L5165L
+tp341
+a(g95
+L5663L
+tp342
+a(g97
+L10466L
+tp343
+a(g99
+L2830L
+tp344
+a(g101
+L4567L
+tp345
+a(g103
+L6500L
+tp346
+a(g105
+L10229L
+tp347
+a(g107
+L4515L
+tp348
+a(g109
+L5218L
+tp349
+a(g111
+L5791L
+tp350
+a(g113
+L4621L
+tp351
+a(g115
+L4556L
+tp352
+a(g117
+L6448L
+tp353
+a(g119
+L5896L
+tp354
+a(g121
+L6494L
+tp355
+a(g123
+L30984L
+tp356
+a(g125
+L10963L
+tp357
+a(g127
+L10950L
+tp358
+a(g129
+L6436L
+tp359
+a(g131
+L14001L
+tp360
+a(g133
+L4542L
+tp361
+a(g135
+L4439L
+tp362
+a(g137
+L4586L
+tp363
+a(g139
+L594L
+tp364
+a(g141
+L6357L
+tp365
+a(g143
+L677L
+tp366
+a(g145
+L4118L
+tp367
+a(g147
+L4366L
+tp368
+a(g149
+L5471L
+tp369
+a(g151
+L759L
+tp370
+a(g153
+L5302L
+tp371
+a(g155
+L28144L
+tp372
+a(g157
+L4405L
+tp373
+a(g159
+L13967L
+tp374
+a(g161
+L4684L
+tp375
+a(g163
+L10829L
+tp376
+a(g165
+L5112L
+tp377
+a(g167
+L4838L
+tp378
+a(g169
+L4546L
+tp379
+a(g171
+L22810L
+tp380
+a(g173
+L10870L
+tp381
+a(g175
+L5695L
+tp382
+a(g177
+L6169L
+tp383
+a(g179
+L3404L
+tp384
+a(g181
+L7644L
+tp385
+a(g183
+L10840L
+tp386
+a(g185
+L3L
+tp387
+a(g187
+L28251L
+tp388
+a(g189
+L5582L
+tp389
+a(g191
+L10905L
+tp390
+a(g193
+L17965L
+tp391
+a(g195
+L2364L
+tp392
+a(g197
+L3518L
+tp393
+a(g199
+L13274L
+tp394
+a(g201
+L6389L
+tp395
+a(g203
+L14427L
+tp396
+a(g205
+L5161L
+tp397
+a(g207
+L4538L
+tp398
+a(g209
+L4475L
+tp399
+a(g211
+L14078L
+tp400
+a(g213
+L13644L
+tp401
+a(g215
+L4408L
+tp402
+a(g217
+L12827L
+tp403
+a(g219
+L5658L
+tp404
+a(g221
+L4423L
+tp405
+a(g223
+L2991L
+tp406
+a(g225
+L4368L
+tp407
+a(g227
+L10929L
+tp408
+a(g229
+L20900L
+tp409
+a(g231
+L10860L
+tp410
+a(g233
+L2835L
+tp411
+a(g235
+L10876L
+tp412
+a(g237
+L5662L
+tp413
+a(g239
+L33137L
+tp414
+a(g241
+L10886L
+tp415
+a(g243
+L5712L
+tp416
+a(g245
+L5114L
+tp417
+a(g247
+L5705L
+tp418
+a(g249
+L2841L
+tp419
+a(g251
+L5682L
+tp420
+a(g253
+L4550L
+tp421
+a(g255
+L14396L
+tp422
+a(g257
+L6358L
+tp423
+a(g259
+L15840L
+tp424
+a(g261
+L28040L
+tp425
+a(g263
+L4583L
+tp426
+a(g265
+L6747L
+tp427
+a(g267
+L4609L
+tp428
+a(g269
+L5126L
+tp429
+a(g271
+L201L
+tp430
+a(g273
+L10848L
+tp431
+a(g275
+L20770L
+tp432
+a(g277
+L21900L
+tp433
+a(g279
+L4411L
+tp434
+a(g281
+L7683L
+tp435
+a(g283
+L12918L
+tp436
+a(g285
+L15852L
+tp437
+a(g287
+L33512L
+tp438
+a(g289
+L10192L
+tp439
+a(g291
+L4412L
+tp440
+a(g293
+L14288L
+tp441
+aaI919546
+a.

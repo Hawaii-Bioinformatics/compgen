@@ -177,7 +177,7 @@
       
       heatMap.append("title").text(function(d) { return d.value; });
       //heatMap.on("click", function(d){alert(days[d.p1][1] + " " + times[d.p2][1] + " ");});
-      heatMap.on("click", function(d){if(days[d.p1][1] != times[d.p2][1]){document.location = "http://courge.ics.hawaii.edu/compgen/summary/"+days[d.p1][1] + "/" + times[d.p2][1] + "/";}});
+      heatMap.on("click", function(d){if(days[d.p1][1] != times[d.p2][1]){document.location = "{% url 'toplevel' %}summary/"+days[d.p1][1] + "/" + times[d.p2][1] + "/";}});
       });
     </script>
   </body>
