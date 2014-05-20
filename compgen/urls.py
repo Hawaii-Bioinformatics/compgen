@@ -6,7 +6,6 @@ from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('compgen.views',
                        url(r'^$', 'main', {'template':'index.html'}, name ="toplevel"),
-
                        url(r'^results/org/(?P<orgid>[0-9]+)/(?P<fname>(blast|faa|zp|blast2go)+)/$', 'downloadFile', name = 'downloadfile'),
                        url(r'^results/org/(?P<orgid>[0-9]+)/$', 'downloadpage', {'template':'org_dl.html'}, name = 'results'),
                        url(r'^heatmap/$', 'staticPage', {'template':'heatmap.html'}),

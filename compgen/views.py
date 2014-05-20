@@ -15,7 +15,7 @@ import os
 from Bio import SeqIO
 import urllib
 import sqlite3
-from  compgen.models import *
+from compgen.models import *
 import json
 import cPickle
 
@@ -24,6 +24,9 @@ def staticPage(request, template):
 
 
 def main(request, template):
+    """
+    grab all the organism stats we store and push it to the page to be displayed in a table
+    """
     orgs = organismStats.objects.select_related().order_by('org__name')
     return render_to_response(template, dict(orgs = orgs), context_instance =  RequestContext(request) )
 
@@ -57,6 +60,10 @@ def downloadpage(request, template, orgid):
 
 
 def summarize(request, popA, popB, template):
+    """
+    The first time we go away from the heatmap, we dont know who si truly popA and popB.  We determine that here,
+    and correctly identify it for all future operations
+    """
     pa = organism.objects.get(name = popA)
     pb = organism.objects.get(name = popB)
     try:
@@ -71,15 +78,23 @@ def summarize(request, popA, popB, template):
 
 
 def ajaxSummary(request, popA, popB):
+    """
+    The summary is loaded as a table.  To try and minimize load time, we will pull the data via ajax.  
+    TODO:  Possibly look into how to make the table function not require such a time consuming lookup/js action
+    """
     orgpairid = organism_pair.objects.get( Q(orgA__id = popA) & Q(orgB__id = popB)) 
     entries = group.objects.filter(Q(orgpair = orgpairid ))
-    #entries = summary.objects.filter(Q(orgA = popA) & Q(orgB = popB))   
     jsstr= json.dumps( dict(data = [ (str(r.orggroup), str(r.score), str(r.avgboot), '<a href = "' + reverse('GOdetails', kwargs=dict(popA=popA, popB=popB, idx=r.orggroup) )  + '">Details</a>', '<a href = "' +  reverse('dlMSA', kwargs=dict(popA=popA, popB=popB, idx=r.orggroup) ) + '">Download</a>') for r in entries ]) )
     return HttpResponse(jsstr, content_type = "application/json")
 
+
 def matrixdl(request):
+    """
+    To make the loading of the matrix data by the js function simpler to handle.  Allows us to place a well defined URL.
+    """
     mtrx = open(settings.MATRIX_DATA)
     return HttpResponse(mtrx.read(), content_type = "text/text")
+
 
 def getMSA(popA, popB, idx):
     pa = organism.objects.get(id = popA)
@@ -103,6 +118,12 @@ def getMSA(popA, popB, idx):
 
 
 def ajaxWordCloud(request, popA, popB):
+    """
+    To filter out the summary list, we use a word cloud.  This is loaded via ajax as well.
+    We perform two actions here.  The first check if we have pre-cached the data (quick load)
+    otherwise, we perfrom the time consuming sql query and cache it for next time.
+    """
+
     cached = os.path.join(settings.WORDCLOUDCACHE, "%s_%s.cache"%(popA, popB))
     if not os.path.isfile(cached):
         cursor = connection.cursor()
@@ -132,9 +153,13 @@ def ajaxWordCloud(request, popA, popB):
 
 
 def ajaxFilterSummary(request, popA, popB, uid):
+    
     """
-    1. uid == go id
-    2. use go id to find all contigs that match
+    When a word in the word cloud is clicked, we need to use it to filter the list, but we need to figure out
+    who matches.  This requires us to take the words UID in the database and see what hits.  we return
+    a list of 0 and 1 that is the length of the summary information list.  1 == has this  particular goslim, all else
+    means it doesnt.
+
     """
     orgpair = organism_pair.objects.get(Q(orgA__id = popA) & Q(orgB__id = popB))
     
@@ -150,6 +175,7 @@ WHERE c.go_id_id = %s AND a.orgpair_id = %s""", [int(uid), orgpair.id])
     for i in cursor.fetchall():
         flags[int(i[0])] = 1
     return HttpResponse(json.dumps(flags), content_type = "application/json")
+
 
 def showDetails(request, popA, popB, idx, template):
     state , pth = getMSA(popA, popB, idx)
