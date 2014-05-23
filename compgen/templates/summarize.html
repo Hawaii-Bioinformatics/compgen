@@ -1,23 +1,17 @@
+{% extends "base.html" %}
 {% load url from future %}
-{% load eztables %}
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Summary</title>
 
-    <!-- DataTables CSS -->
-<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.0/css/jquery.dataTables.css">
- 
-<!-- jQuery -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+{% block title %}Summary{% endblock %}
 
-<!-- DataTables -->
+{% block hdrAdditions %}
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/jquery.dataTables.css" />
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/general.css" />
 
-<script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.0/js/jquery.dataTables.min.js"></script>
-
-<script type="text/javascript" charset="utf8" src="http://d3js.org/d3.v3.min.js"></script>
-<script type="text/javascript" charset="utf8" src="{{STATIC_URL}}/js/d3.layout.cloud.js"></script>
+<script type="text/javascript" charset="utf8" src="{{STATIC_URL}}js/jquery.min.js"></script>
+<script type="text/javascript" charset="utf8" src="{{STATIC_URL}}js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" charset="utf8" src="{{STATIC_URL}}js/d3.min.js"></script>
+<script type="text/javascript" charset="utf8" src="{{STATIC_URL}}js/d3.layout.cloud.js"></script>
 
 <script>  
 $.fn.dataTable.ext.search.push( function( settings, data, dataIndex ) {   
@@ -34,7 +28,6 @@ $(document).ready(function() {
    "ajax": '{% url  'ajax_summary' popA popB %}',
    "deferRender": true,
     "iDisplayLength": 50,
-//"bFilter": false // can't add since it will disable the filtering function of the word cloud. need to hide it with css instead..
    })); 
 
 $(document).data('d3chart.fill', d3.scale.category20());
@@ -94,46 +87,43 @@ function filterGo(url, txt){
   "json");
 }
 
-
 </script>
-  </head>
+{% endblock %}
 
-  <body>
-    <table>
-      <tr>
-	<td style = "width: 620px;">
-	  <div style ="position:fixed; left:50px; top:50px;"> 
-	    Filtered on:<br /><span style = "font-weight:bold;font-size:0.8em" id = "filteredOn">None</span><br />
-	    <div id = "vis"></div>
-	    <input type = "button"  value = "reset" id = "testb_r" onclick = "filterGoReset();"/>
-	    
-	  </div>
-	</td>
-	<td>
-    <table  id ="example" style = "width:320px">
-              <thead>
-            <tr>
-                <th>Group ID </th>
-                <th>Best Score (bits)</th>
-                <th>Average Bootstrap</th>
-                <th>GOSlim Details</th>
-                <th>MSA Download</th>
-            </tr>
+{% block content %}
+<table>
+  <tr>
+    <td style = "width: 620px;">
+      <div style ="position:fixed; left:50px; top:50px;"> 
+	Filtered on:<br /><span style = "font-weight:bold;font-size:0.8em" id = "filteredOn">None</span><br />
+	<div id = "vis"></div>
+	<input type = "button"  value = "reset" id = "testb_r" onclick = "filterGoReset();"/>
+      </div>
+    </td>
+    <td>
+      <table  id ="example" style = "width:320px">
+
+        <thead>
+          <tr>
+            <th>Group ID </th>
+            <th>Best Score (bits)</th>
+            <th>Average Bootstrap</th>
+            <th>GOSlim Details</th>
+            <th>MSA Download</th>
+          </tr>
         </thead>
- 
+	
         <tfoot>
-            <tr>
-                <th>Group ID </th>
-                <th>Best Score (bits)</th>
-                <th>Average Bootstrap</th>
-                <th>GOSlim Details</th>
-                <th>MSA Download</th>
-            </tr>
+          <tr>
+            <th>Group ID </th>
+            <th>Best Score (bits)</th>
+            <th>Average Bootstrap</th>
+            <th>GOSlim Details</th>
+            <th>MSA Download</th>
+          </tr>
         </tfoot>
-    </table>
-</td>
-</tr>
+      </table>
+    </td>
+  </tr>
 </table>
-
-  </body>
-</html>
+{% endblock %}

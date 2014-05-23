@@ -93,7 +93,15 @@ def matrixdl(request):
     To make the loading of the matrix data by the js function simpler to handle.  Allows us to place a well defined URL.
     """
     mtrx = open(settings.MATRIX_DATA)
-    return HttpResponse(mtrx.read(), content_type = "text/text")
+    hdrs = mtrx.next().strip().split()
+    
+    # Y is the 1st split, X is the secolnd split
+    cols = open(settings.MATRIX_COLS).read().split("#")
+    cols = [ [ (i, j, ) for i,j in enumerate(a.strip().split())]  for a in cols]
+
+
+    
+    return HttpResponse(json.dumps(dict(mtrx=[dict(zip(hdrs, map(int, l.strip().split()))) for l in mtrx ],yaxis = cols[0], xaxis= cols[1])) , content_type = "application/json")
 
 
 def getMSA(popA, popB, idx):
@@ -226,4 +234,5 @@ def sendFile(request, fPath, fsize, filename, contentType = "text/plain"):
     else:
         response['Content-Length'] = fsize
     return response
+
 

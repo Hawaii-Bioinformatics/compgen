@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+  <head>
+    <title>Compgen {% block title %}{% endblock %}</title>
+    {% block hdrAdditions %}{% endblock %}
+  </head>
+<body>
+{% block content %}
+{% endblock %}
+</body>
+    {% block tailAdditions %}{% endblock %}
+</html>

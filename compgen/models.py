@@ -34,32 +34,26 @@ class contig(models.Model):
     org = models.ForeignKey(organism)
     name = models.TextField(blank = False)
 
-
 class go2Name(models.Model):
     id = models.AutoField(primary_key = True)
     go_id = models.TextField(blank = False)
     description = models.TextField(blank = True)
-
-   
 
 class goterm(models.Model):
     id = models.AutoField(primary_key = True)
     contig = models.ForeignKey(contig)
     go_id = models.ForeignKey(go2Name)
     description = models.TextField(blank = True)
-
-
+    
 class goslim(models.Model):
     id = models.AutoField(primary_key = True)
     contig = models.ForeignKey(contig)
     go_id = models.ForeignKey(go2Name)
 
-
 class organism_pair(models.Model):
     id = models.AutoField(primary_key = True)
     orgA = models.ForeignKey(organism, related_name ='orgA' )
     orgB = models.ForeignKey(organism, related_name = 'orgB' )
-
 
 class group(models.Model):
     id = models.AutoField(primary_key = True)
@@ -68,21 +62,10 @@ class group(models.Model):
     score = models.IntegerField()
     avgboot = models.DecimalField(max_digits = 6, decimal_places = 3)
 
-
 class msa(models.Model):
     id = models.AutoField(primary_key = True)
     grp = models.ForeignKey(group)
     contig = models.ForeignKey(contig)
-
-
-# class summary(models.Model):
-#     id = models.AutoField(primary_key = True)
-#     orgA = models.TextField(blank = False)
-#     orgB = models.TextField(blank = False)
-#     groupid = models.IntegerField()
-#     score = models.IntegerField()
-#     avgboot = models.DecimalField(max_digits= 6, decimal_places=3)
-    
 
 class contigAdmin(admin.ModelAdmin):
     list_display = ('id', 'name' )
