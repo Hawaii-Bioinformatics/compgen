@@ -3,17 +3,10 @@
 {% block hdrAdditions %}
 <style>
   td, th {padding-left:15px; border:1px solid black;}
-  #basic-modal-content {display:none;}
-  #simplemodal-overlay {background-color:#000;}
-  #simplemodal-container {height:140px; width:600px; color:#eee; background-color:#222; border:4px solid #444; padding:12px; border-radius:5px}
-  #simplemodal-container .simplemodal-data {padding:8px;}
-  #simplemodal-container code {background:#141414; border-left:3px solid #65B43D; color:#eee; display:block; font-size:12px; margin-bottom:12px; padding:4px 6px 6px;}
-  #simplemodal-container a {color:#66f;}
   #simplemodal-container a.modalCloseImg {background:url({{STATIC_URL}}/img/basic/x.png) no-repeat; width:25px; height:29px; display:inline; z-index:3200; position:absolute; top:-15px; right:-16px; cursor:pointer;}
-  #simplemodal-container h3 {color:#84b8d9;}
 </style>
-<script type="text/javascript" charset="utf8" src="{{STATIC_URL}}/js/jquery.min.js"></script>
-<script type="text/javascript" src="{{STATIC_URL}}/js/jquery.simplemodal.min.js" ></script>
+<script type="text/javascript" charset="utf-8" src="{{STATIC_URL}}/js/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="{{STATIC_URL}}/js/jquery.simplemodal.min.js" ></script>
 {% endblock %}
 
 {% block content %}

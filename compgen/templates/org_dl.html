@@ -1,13 +1,7 @@
 {% extends "base.html" %}
 {% load url from future %}
-{% block hdrAdditions %}
-<style>
-  td, th {
-      padding-left:15px;
-  border:1px solid black;
-  }
-</style>
-{% endblock %} 
+
+{% block hdrAdditions %}<style>td, th{padding-left:15px;border:1px solid black;}</style>{% endblock %} 
 
 {% block content %}   
  {% for i in output %}

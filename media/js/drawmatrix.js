@@ -1,7 +1,5 @@
-function drawMatrix(dataurl, outputurl){
-    
-    
 
+function drawMatrix(dataurl, outputurl){
 	d3.json(dataurl,
 	       function(error, alldata) {
 		   var data = alldata.mtrx,
@@ -83,5 +81,4 @@ function drawMatrix(dataurl, outputurl){
 			     );
 	       }); // end function
 }
-
 

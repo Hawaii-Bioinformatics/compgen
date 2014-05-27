@@ -1,19 +1,11 @@
 {% extends "base.html" %}
 
 {% block hdrAdditions %}
-    <style>
-      rect.bordered {stroke: #E6E6E6;stroke-width:2px}
-      text.mono {font-size: 9pt;font-family: Consolas, courier;fill: #aaa}
-      text.axis-workweek {fill: #000}
-      text.axis-worktime {fill: #000}
-    </style>
-    <script type="text/javascript" charset="utf8" src="{{STATIC_URL}}js/jquery.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="{{STATIC_URL}}js/d3.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="{{ STATIC_URL }}js/heatmap.js"></script>
+    <script type="text/javascript" charset="utf-8" src="{{STATIC_URL}}js/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="{{STATIC_URL}}js/d3.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="{{STATIC_URL}}js/drawmatrix.min.js"></script>
 {% endblock %}
 
-{% block content %}
-    <div id="chart" ></div>
-    <script>drawMatrix('{% url 'matrix' %}', '{% url 'toplevel' %}');</script>
-{% endblock %}
+{% block content %}<div id="chart" ></div>{% endblock %}
 
+{% block tailAdditions %}<script>drawMatrix('{% url 'matrix' %}', '{% url 'toplevel' %}');</script>{% endblock %}
