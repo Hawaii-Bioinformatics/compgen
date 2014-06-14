@@ -29,9 +29,10 @@ $("#cloud").html(data);
   <tr>
     <td style = "width: 620px;">
       <div style ="position:fixed; left:50px; top:50px;"> 
-	Filtered on:<br /><span style = "font-weight:bold;font-size:0.8em" id = "filteredOn">None</span><br />
+	<input type = "button"  value = "Remove filter" id = "testb_r" onclick = "filterGoReset();"/>
+	Filtered on: <span style = "font-size:0.85em" id = "filteredOn">None</span>
 	<div id = "vis"></div>
-	<input type = "button"  value = "reset" id = "testb_r" onclick = "filterGoReset();"/>
+
       </div>
     </td>
     <td>

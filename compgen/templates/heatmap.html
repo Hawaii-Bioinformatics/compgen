@@ -2,10 +2,26 @@
 
 {% block hdrAdditions %}
     <script type="text/javascript" charset="utf-8" src="{{STATIC_URL}}js/jquery.min.js"></script>
+{#    <script type="text/javascript" charset="utf-8" src="{{STATIC_URL}}js/Blob.js"></script>#}
+{#    <script type="text/javascript" charset="utf-8" src="{{STATIC_URL}}js/canvas-toBlob.js"></script>#}
+{#    <script type="text/javascript" charset="utf-8" src="{{STATIC_URL}}js/FileSaver.js"></script>#}
+
+
     <script type="text/javascript" charset="utf-8" src="{{STATIC_URL}}js/d3.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="{{STATIC_URL}}js/drawmatrix.min.js"></script>
+{#    <script type="text/javascript" charset="utf-8">#}
+{#      function savesvg(){#}
+{#      var html = d3.select("svg").attr("title", "heatmap")#}
+{#        .attr("version", 1.1).attr("xmlns", "http://www.w3.org/2000/svg")#}
+{#        .node().parentNode.innerHTML;#}
+{#      saveAs( new Blob([html], {type: 'image/svg+xml;charset=utf-8'} ), "svgData.svg");#}
+{#      };#}
+{#    </script>#}
 {% endblock %}
 
-{% block content %}<div id="chart" ></div>{% endblock %}
+{% block content %}
+{#<input type="button" value="Save" onclick = "return savesvg();" />#}
+<div id="chart" ></div>
+{% endblock %}
 
 {% block tailAdditions %}<script>drawMatrix('{% url 'matrix' %}', '{% url 'toplevel' %}');</script>{% endblock %}
