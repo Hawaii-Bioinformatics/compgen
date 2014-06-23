@@ -6,11 +6,17 @@ from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('compgen.views',
                        url(r'^$', 'main', {'template':'index.html'}, name ="toplevel"),
+
                        url(r'^results/org/(?P<orgid>[0-9]+)/(?P<fname>(blast|faa|zp|blast2go)+)/$', 'downloadFile', name = 'downloadfile'),
                        url(r'^results/org/(?P<orgid>[0-9]+)/$', 'downloadpage', {'template':'org_dl.html'}, name = 'results'),
+
+                       url(r'^multi/$', 'staticPage', {'template':'multi.html'}),
+
                        url(r'^heatmap/$', 'staticPage', {'template':'heatmap.html'}),
                        url(r'^heatmap/data/$', 'matrixdl', name = 'matrix'),
+
                        url(r'^summary/(?P<popA>.+)/(?P<popB>.+)/$', 'summarize', {'template': 'summarize.html'}),
+
                        url(r'^dlmsa/(?P<popA>.+)/(?P<popB>.+)/(?P<idx>[0-9]+)/$', 'downloadMSA', name = 'dlMSA'),
                        url(r'^godetails/(?P<popA>.+)/(?P<popB>.+)/(?P<idx>[0-9]+)/$', 'showDetails',{'template': 'details.html'}, name = 'GOdetails'),
                        url(r'^ajax/summary/(?P<popA>.+)/(?P<popB>.+)/$', 'ajaxSummary', name = 'ajax_summary'),
