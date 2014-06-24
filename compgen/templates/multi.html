@@ -2,22 +2,19 @@
 <html>
     <title>The eyeball</title>
     <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
-    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <link href="{{STATIC_URL}}/noUiSlider/jquery.nouislider.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}/multi/style.css" rel="stylesheet">
+
 </head>
 <body>
-  <h2>Species count between 20-25 (inclusive)</h2>
-  <div style="width: 1150px;" id="bpg">
-    <div style="width: 1150px; height: 1150px;" id="mainDiv">
-      <div style="width: 825px; height: 825px;" id="svgDiv"></div>
-    </div>
-    <div id="headerRight" style="width:350px; right:20px;">
-      <div class="hint" style="font-size:26px; color:#000;"></div>
-      <div class="hint">
-	<div id="totalDiv" style="color: #000; font-size:22px; font-weight:bold; margin-top:5px; font-family: Georgia; font-style:italic"></div>
-	<div style="color: #000; font-size:14px; margin-top:5px; margin-bottom:10px; font-style:italic"> </div>
+
+  <div style=" margin: 0 auto;" id="bpg">
+      <div style="width:100%;height:825px;text-align:center;" id="svgDiv">
+	<div id = "ranged" class ="slider"></div><br />
+	<div id = "rangetext" style = "display:none">Participating Species (inclusive): Min: <span id = "minv-span"></span> Max: <span id = "maxv-span"></span></div>
+	<span id = "loader" style = "display:none;">Loading...</span>
       </div>
     </div>
-    
   </div>
 
   <div id="toolTip" class="tooltip" style="width: 250px; height: 50px; position: absolute; left: 760px; top: 169px; opacity: 0;z-index:-999">
@@ -29,19 +26,17 @@
     <div class="tooltipTail"></div>
   </div>
 
-<script type="text/javascript" src="{{STATIC_URL}}/multi/combined.min.js" charset="utf-8"></script>
-{#<script type="text/javascript" src="{{STATIC_URL}}/multi/globals.js" charset="utf-8"></script>#}
-{#<script type="text/javascript" src="{{STATIC_URL}}/multi/initialize.js" charset="utf-8"></script>#}
-{#<script type="text/javascript" src="{{STATIC_URL}}/multi/events.js" charset="utf-8"></script>#}
-{#<script type="text/javascript" src="{{STATIC_URL}}/multi/data.js" charset="utf-8"></script>#}
-{#<script type="text/javascript" src="{{STATIC_URL}}/multi/_buildChords.js" charset="utf-8"></script>#}
-{#<script type="text/javascript" src="{{STATIC_URL}}/multi/update.js" charset="utf-8"></script>#}
-{#<script type="text/javascript" src="{{STATIC_URL}}/multi/main.js" charset="utf-8"></script>#}
-<script type="text/javascript" charset="utf=8">
-setRange(20,25);
-fetchData("{{STATIC_URL}}/multi/data/");
-</script>
 
+
+<script type="text/javascript" charset="utf-8" src="{{STATIC_URL}}/js/jquery.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="{{STATIC_URL}}/noUiSlider/jquery.nouislider.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="{{STATIC_URL}}/multi/combined.min.js" charset="utf-8"></script>
+
+<script type="text/javascript" charset="utf=8">
+visualize.setRange(20,25);
+visualize.fetchData("{{STATIC_URL}}/multi/data/");
+</script>
 
 </body>
 </html>
