@@ -1,15 +1,25 @@
-<!DOCTYPE html>
-<html>
-    <title>The eyeball</title>
-    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
-    <link href="{{STATIC_URL}}/noUiSlider/jquery.nouislider.css" rel="stylesheet">
-    <link href="{{STATIC_URL}}/multi/style.css" rel="stylesheet">
+{% extends "base.html" %}
 
-</head>
-<body>
 
+{% block title%} -- The eyeball{% endblock %}
+{% block hdrAdditions %}
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+<style>
+  #popupdata { margin: 0 auto;}
+  #popupdata td, th {text-align:left;padding:0px 15px 0px 15px; border:1px solid black;}
+  #popupdata td.numeric{text-align:right}
+  #simplemodal-container a.modalCloseImg {background:url({{STATIC_URL}}/img/basic/x.png) no-repeat;width:25px;height:29px;display:inline; z-index:3200; position:absolute;top:-15px;right:-16px;cursor:pointer;}
+</style>
+
+<link href="{{STATIC_URL}}/noUiSlider/jquery.nouislider.css" rel="stylesheet">
+<link href="{{STATIC_URL}}/multi/style.css" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
   <div style=" margin: 0 auto;" id="bpg">
       <div style="width:100%;height:825px;text-align:center;" id="svgDiv">
+	<br />
 	<div id = "ranged" class ="slider"></div><br />
 	<div id = "rangetext" style = "display:none">Participating Species (inclusive): Min: <span id = "minv-span"></span> Max: <span id = "maxv-span"></span></div>
 	<span id = "loader" style = "display:none;">Loading...</span>
@@ -26,17 +36,13 @@
     <div class="tooltipTail"></div>
   </div>
 
+  <div id = "popup"></div>
 
+  <script type="text/javascript" charset="utf-8" src="{{STATIC_URL}}/js/d3.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="{{STATIC_URL}}/js/jquery.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="{{STATIC_URL}}/js/jquery.simplemodal.min.js" ></script>
+  <script type="text/javascript" charset="utf-8" src="{{STATIC_URL}}/noUiSlider/jquery.nouislider.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="{{STATIC_URL}}/multi/combined.min.js"></script>
+  <script type="text/javascript" charset="utf=8">visualize.getJSONData("{{STATIC_URL}}/multi/data/");</script>
 
-<script type="text/javascript" charset="utf-8" src="{{STATIC_URL}}/js/jquery.min.js"></script>
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<script type="text/javascript" src="{{STATIC_URL}}/noUiSlider/jquery.nouislider.min.js" charset="utf-8"></script>
-<script type="text/javascript" src="{{STATIC_URL}}/multi/combined.min.js" charset="utf-8"></script>
-
-<script type="text/javascript" charset="utf=8">
-visualize.setRange(20,25);
-visualize.fetchData("{{STATIC_URL}}/multi/data/");
-</script>
-
-</body>
-</html>
+{% endblock %}
